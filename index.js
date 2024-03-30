@@ -26,6 +26,7 @@ class Player {
 
         this.position.x += this.velocity.x;
         this.position.y += this.velocity.y;
+        this.velocity.y += gravity;
         if (this.position.y + this.height + this.velocity.y < canvas.height) this.velocity.y += gravity;
         else this.velocity.y = 0
     }
@@ -57,8 +58,8 @@ function animate() {
     player2.update();
 
     player.velocity.x = 0
-    if (keys.d.pressed) player.velocity.x = 1
-    else if (keys.a.pressed) player.velocity.x = -1
+    if (keys.d.pressed) player.velocity.x = 5
+    else if (keys.a.pressed) player.velocity.x = -5
 }
 
 animate();
@@ -72,7 +73,7 @@ window.addEventListener('keydown', (event) => {
             keys.a.pressed = true
             break
         case 'w':
-            player.velocity.y = -3
+            player.velocity.y = -10
             break
        
     }
@@ -84,9 +85,6 @@ window.addEventListener('keyup', (event) => {
             break
         case 'a':
             keys.a.pressed = false
-            break
-        case 'w':
-            player.velocity.y = -3
             break
        
     }
