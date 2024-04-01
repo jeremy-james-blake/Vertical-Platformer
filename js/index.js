@@ -127,3 +127,5 @@ window.addEventListener('keyup', (event) => {
        
     }
 })
+
+console.log(floorCollisions)
