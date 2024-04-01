@@ -4,7 +4,10 @@ const c = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 576;
 
-
+const scaledCanvas = {
+    width: canvas.width / 4,
+    height: canvas.height / 4
+}
 
 const gravity = 0.1
 
@@ -83,7 +86,11 @@ function animate() {
     c.fillStyle = 'white';
     c.fillRect(0, 0, canvas.width, canvas.height);
     
+    c.save();
+    c.scale(4, 4);
+    c.translate(0, -background.image.height + scaledCanvas.height);
     background.update();
+    c.restore();
 
     player.update();
     player2.update();
